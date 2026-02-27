@@ -1,0 +1,262 @@
+/* =========================================
+   1. GLOBAL WRAPPER
+========================================= */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("../assets/bg-ai.jpg") no-repeat center center/cover;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.03); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* =========================================
+   2. FLOATING AMBIENT GLOW
+========================================= */
+.auth-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(120, 180, 150, 0.2), transparent 70%);
+  filter: blur(150px);
+  animation: floatGlow 18s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow {
+  from { transform: translate(-250px, -150px); }
+  to { transform: translate(250px, 150px); }
+}
+
+/* =========================================
+   3. HEADER OUTSIDE CARD
+========================================= */
+.auth-header {
+  text-align: center;
+  margin-bottom: 28px; /* reduced spacing */
+  z-index: 2;
+}
+
+.auth-logo {
+  width: 150px; /* increased size */
+  margin-bottom: 10px;
+  transition: 0.5s ease;
+}
+
+.auth-logo:hover {
+  transform: scale(1.07);
+}
+
+.auth-app-name {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #e6f5ee;
+  margin-bottom: 8px;
+}
+
+.auth-tagline-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.auth-line {
+  width: 70px;
+  height: 1px;
+  background: rgba(180, 220, 200, 0.5);
+}
+
+.auth-tagline {
+  font-size: 15px;
+  color: #bcd8cc;
+  letter-spacing: 0.6px;
+}
+
+/* =========================================
+   4. GLASS CARD
+========================================= */
+.auth-card {
+  backdrop-filter: blur(28px);
+  background: rgba(15, 25, 20, 0.6);
+  border: 1px solid rgba(150, 180, 160, 0.3);
+  border-radius: 22px;
+  padding: 35px 40px; /* reduced padding */
+  width: 100%;
+  max-width: 420px;
+  box-shadow:
+    0 0 50px rgba(100, 160, 130, 0.3),
+    inset 0 0 40px rgba(255,255,255,0.04);
+  position: relative;
+  z-index: 2;
+  transition: 0.4s ease;
+}
+
+.auth-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 60px rgba(120, 200, 160, 0.5),
+    inset 0 0 40px rgba(255,255,255,0.05);
+}
+
+/* Light reflection */
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  filter: blur(25px);
+}
+
+/* =========================================
+   5. INPUTS
+========================================= */
+.auth-input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(180, 220, 200, 0.3);
+  background: rgba(20, 35, 28, 0.6);
+  color: #e6f5ee;
+  outline: none;
+  transition: 0.3s;
+}
+
+.auth-input:focus {
+  border-color: #7aa98d;
+  box-shadow: 0 0 15px rgba(122, 169, 141, 0.6);
+}
+
+/* =========================================
+   6. PASSWORD
+========================================= */
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  cursor: pointer;
+  color: #8fc5a8;
+  font-size: 13px;
+}
+
+/* =========================================
+   7. SHIMMER BUTTON
+========================================= */
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #6d9f83, #88b39a);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.auth-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: 0.5s;
+}
+
+.auth-button:hover::after {
+  left: 100%;
+}
+
+.auth-button:hover {
+  box-shadow: 0 0 30px rgba(136, 179, 154, 0.8);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   8. DIVIDER
+========================================= */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+  gap: 10px;
+  color: #bcd8cc;
+}
+
+.auth-divider-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(180, 220, 200, 0.3);
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 14px;
+  color: #cde7da;
+  cursor: pointer;
+}
+
+.auth-switch span {
+  color: #8fc5a8;
+  font-weight: 500;
+}
+/* =========================================
+   9. PAGE TRANSITION ANIMATION
+========================================= */
+.auth-wrapper {
+  animation: fadePage 0.9s ease forwards;
+}
+
+@keyframes fadePage {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================================
+   10. FLOATING PARTICLES
+========================================= */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(180,220,200,0.15) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: moveParticles 60s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveParticles {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}

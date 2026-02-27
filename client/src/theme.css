@@ -1,0 +1,123 @@
+/* =====================================================
+   GLOBAL THEME — UNORA AI PREMIUM
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caladea:wght@400;700&display=swap');
+
+/* Smooth fade animation */
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* ================= PREMIUM GLASS CARD ================= */
+
+.card {
+  background: rgba(10, 15, 10, 0.75);
+  border-radius: 20px;
+  padding: 50px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+ overflow: hidden;
+
+  border: 1px solid rgba(175, 196, 162, 0.15);
+
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.6),
+    inset 0 0 40px rgba(175,196,162,0.05);
+
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 25px 80px rgba(0,0,0,0.7),
+    0 0 30px rgba(175,196,162,0.15);
+}
+
+/* Card Typography */
+.card h3 {
+  color: #AFC4A2;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #e8f1e6;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #AFC4A2, transparent);
+}
+
+/* Buttons */
+button {
+  background: #5E7C5A;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background: #AFC4A2;
+  color: black;
+  box-shadow: 0 0 12px rgba(175,196,162,0.5);
+}
+
+/* Inputs */
+input {
+  font-family: 'Caladea', serif;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid #AFC4A2 !important;
+  box-shadow: 0 0 8px rgba(175,196,162,0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5E7C5A;
+  border-radius: 10px;
+}
+
+/* ===== Responsive Tweaks ===== */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px !important;
+  }
+
+  .card {
+    padding: 25px !important;
+  }
+}
